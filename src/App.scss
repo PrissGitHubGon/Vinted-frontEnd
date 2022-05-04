@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home{
+  .banner{
+    display: flex;
+  }
+  img{
+   height: 340px;
+   width: 100%;
+   object-fit: cover;
+  }
+  .tri{
+    // border:1px solid black;   
+    height: 302px;
+    width: 352px;
+    position: absolute;
+    margin-left: 71px;
+    margin-top: 21px;
+    background-color:white;
+    border-radius:5px;
+   
+  }
+}
