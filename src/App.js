@@ -7,20 +7,9 @@ function App() {
   return (
     <Router>
       <Header />
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/offer">offer</Link>
-          </li>
-        </ul>
-      </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/offer" element={<Offer />} />
-        {/* <Route path="/product/:id" element={<Product />} /> */}
+        <Route path="/offer/:offerId" element={<Offer />} />
       </Routes>
     </Router>
   );

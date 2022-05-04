@@ -27,4 +27,20 @@
     border-radius:5px;
    
   }
+  .article-container{
+    width: 1243px;
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    margin:0 auto;
+  }
+  .articles{
+ 
+  img{
+    height: 327px;
+    width: 195px;
+    object-fit: cover;
+  }
 }
+}
+
