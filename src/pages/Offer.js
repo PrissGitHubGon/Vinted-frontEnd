@@ -34,12 +34,34 @@ function Offer() {
           <img src={data.product_image.url} alt="" />
         </div>
         <div className="offert-article-unique">
+          <button
+            onClick={() => {
+              console.log(
+                "prix => ",
+                data.product_price,
+                "\n",
+                "taille =>",
+                data.product_details[0],
+                "\n",
+                "état => ",
+                data.product_details[1],
+                "\n",
+                "couleur => ",
+                data.product_details[2],
+                "\n",
+                "emplacement => ",
+                data.product_details[3]
+              );
+            }}
+          >
+            la
+          </button>
           <p>{data.product_price} €</p>
-          <p>MARQUE :{data.product_details.MARQUE}</p>
-          <p>TAILLE :{data.product_details.TAILLE}</p>
-          <p>ETAT : {data.product_details.ÉTAT}</p>
-          <p>COULEUR : {data.product_details.COULEUR}</p>
-          <p>EMPLACEMENT : {data.product_details.EMPLACEMENT}</p>
+          <p>MARQUE :</p>
+          {/* <p>TAILLE :{data.product_details[data].TAILLE}</p> */}
+          {/* <p>ETAT : {data.product_details[1]}</p> */}
+          {/* <p>COULEUR : {data.product_details[2]}</p> */}
+          {/* <p>EMPLACEMENT : {data.product_details[3]}</p> */}
           <div className="offert-article-etat">
             <p>{data.product_name}</p>
             <p>{data.product_description}</p>
