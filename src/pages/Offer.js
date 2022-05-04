@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
@@ -10,10 +10,10 @@ function Offer() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
-          // `https://lereacteur-vinted-api.herokuapp.com/offers/id:${params.offerId}`
+          // "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${params.offerId}`
         );
-        // console.log(response.data);
+        console.log(params.offerId);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -21,52 +21,30 @@ function Offer() {
       }
     };
     fetchData();
-  }, []);
+  }, [params.offerId]);
   return isLoading === true ? (
     <div>En cours de chargement...</div>
   ) : (
-    <div className="">
-      Product: {params.offerId}
-      <div className="article-container">
-        {data.offers.map((articles, index) => {
-          {
-            /* const id = articles._id; */
-          }
+    <div className="" key={params.offerId}>
+      {/* Product: {params.offerId} */}
+      <Link to="/">Retour</Link>
 
-          {
-            /* return ( */
-          }
-          {
-            /* <Link to={`/offer/${id}`}> */
-          }
-
-          <div className="articles" key={params.offerId}>
-            <div className="images">
-              <img src={articles.product_image.url} alt="" />
-            </div>
-            <div className="description">
-              <p>{articles.product_price} €</p>
-              {articles.product_details.map((detail) => {
-                console.log("ceci et le params =>", params.offerId);
-
-                return (
-                  <div className="detail" key={params.offerId}>
-                    <p>{detail.TAILLE}</p>
-                    <p>{detail.MARQUE}</p>
-                  </div>
-                );
-              })}
-
-              <p></p>
-            </div>
-          </div>;
-          {
-            /* </Link> */
-          }
-          {
-            /* ); */
-          }
-        })}
+      <div className="article-Unique-container">
+        <div className="img">
+          <img src={data.product_image.url} alt="" />
+        </div>
+        <div className="offert-article-unique">
+          <p>{data.product_price} €</p>
+          <p>MARQUE :{data.product_details.MARQUE}</p>
+          <p>TAILLE :{data.product_details.TAILLE}</p>
+          <p>ETAT : {data.product_details.ÉTAT}</p>
+          <p>COULEUR : {data.product_details.COULEUR}</p>
+          <p>EMPLACEMENT : {data.product_details.EMPLACEMENT}</p>
+          <div className="offert-article-etat">
+            <p>{data.product_name}</p>
+            <p>{data.product_description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
