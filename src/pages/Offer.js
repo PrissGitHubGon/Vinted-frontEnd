@@ -26,7 +26,7 @@ function Offer() {
     <div>En cours de chargement...</div>
   ) : (
     <div className="">
-      {/* Product: {params.offerId} */}
+      Product: {params.offerId}
       <div className="article-container">
         {data.offers.map((articles, index) => {
           {
