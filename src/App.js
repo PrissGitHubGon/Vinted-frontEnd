@@ -38,7 +38,10 @@ function App() {
       <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/publish" element={<Publish setUser={setUser} />} />
+        <Route
+          path="/publish"
+          element={<Publish setUser={setUser} token={token} />}
+        />
         <Route path="/user" element={<User />} />
         <Route path="/offer/:offerId" element={<Offer />} />
         <Route path="/signup" element={<Inscription setUser={setUser} />} />
