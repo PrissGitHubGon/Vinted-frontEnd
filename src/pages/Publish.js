@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-const Publish = ({ token, setUser }) => {
+const Publish = ({ token }) => {
   //state formulaire pour la récupération des value dans la fonction onChange
   const [title, setTitle] = useState(""); //  title = titre
   const [description, setDescription] = useState(""); //  description = description
@@ -13,7 +13,7 @@ const Publish = ({ token, setUser }) => {
   const [city, setCity] = useState(""); //  city = Lieu
   const [price, setPrice] = useState(0); //  price = prix
   const [exchangeInterest, setExchangeInterest] = useState(false); //  checkbox
-  const [pictures, setPictures] = useState(null); // file = photo
+  const [picture, setPicture] = useState(null); // file = photo
   const [data, setData] = useState(null); //data requete
   const [isPictureSending, setIsPictureSending] = useState(false);
   //*******************************************************************************/
@@ -37,7 +37,7 @@ const Publish = ({ token, setUser }) => {
     formData.append("price", price);
     formData.append("color", color);
     formData.append("size", size);
-    formData.append("picture", pictures);
+    formData.append("picture", picture);
     formData.append("city", city);
 
     try {
@@ -80,7 +80,7 @@ const Publish = ({ token, setUser }) => {
             <input
               type="file"
               onChange={(event) => {
-                setPictures(event.target.files[0]);
+                setPicture(event.target.files[0]);
               }}
             />
           </div>
