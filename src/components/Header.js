@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/img/logo.svg";
 import RangeLine from "./Range-bar";
-import axios from "axios";
+// import axios from "axios";
 function Header({ token, setUser }) {
   const [input, setInput] = useState("");
   // const [data, setData] = useState();
@@ -11,25 +11,25 @@ function Header({ token, setUser }) {
   // const marque = data;
   // console.log("console log de marque =>", marque);
   // axios
-  //   .get(`https://lereacteur-vinted-api.herokuapp.com/offer?title=`)
+  //   .get(`https://lereacteur-vinted-api.herokuapp.com/offer`)
   //   .then((response) => {
-  //     const marqueTitle = response.data.offers.product_details;
-  //     console.log("console log de response =>", response.data, marqueTitle);
-  //     // console.log("B");
-  //     // console.log(pokemonTab);
-  //     for (let i = 0; i < marqueTitle.length; i++) {
-  //       // je boucle sur mon tableau et j'affiche la clef name de chaque objet.
-  //       console.log(marqueTitle[i].MARQUE);
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     // se déclenchera en cas d'erreur
-  //     console.log(error);
-  //   });
-  axios.get("/title", (req, res) => {
-    console.log(req.query); // { name: 'farid', city: 'paris' }
-    res.send("Data received");
-  });
+  // const marqueTitle = response.data.offers.product_details;
+  // console.log("console log de response =>", response.data, marqueTitle);
+  // // console.log("B");
+  // // console.log(pokemonTab);
+  // for (let i = 0; i < marqueTitle.length; i++) {
+  //   // je boucle sur mon tableau et j'affiche la clef name de chaque objet.
+  // console.log(response.data);
+  // }
+  // })
+  // .catch((error) => {
+  // se déclenchera en cas d'erreur
+  // console.log(error);
+  // });
+  // axios.get("/title", (req, res) => {
+  //   console.log(req.query); // { name: 'farid', city: 'paris' }
+  //   res.send("Data received");
+  // });
   return (
     <div className="global-header">
       <div className="header">
@@ -86,30 +86,15 @@ function Header({ token, setUser }) {
               Se déconnecter
             </button>
             <select>
-              <option value="Mon compte" disabled selected>
+              <option value="Mon compte" disabled>
                 Mon compte
               </option>
-              <option
-                value="Mon profil"
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                Mon profil
-              </option>
+              <option value="Mon profil">Mon profil</option>
               <option value="Mes paramètres">Mes paramètres</option>
               <option value="Personnalisation">Personnalisation</option>
               <option value="Mon porte-monnaie">Mon porte-monnaie</option>
               <option value="invite tes amis">invite tes amis</option>
-              <option
-                value="Se déconnecter"
-                onChange={() => {
-                  //Je me déconnecte et je redirige l'utilsateur vers la home page
-                  setUser(null);
-                  navigate("/");
-                }}
-                style={{ color: "red" }}
-              >
+              <option value="Se déconnecter" style={{ color: "red" }}>
                 Se déconnecter
               </option>
             </select>

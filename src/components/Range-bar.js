@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
-import axios from "axios";
+// import axios from "axios";
 
 const RangeLine = () => {
   const STEP = 0.1;

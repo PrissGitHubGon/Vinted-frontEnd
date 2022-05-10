@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 const Publish = ({ token }) => {
   //state formulaire pour la récupération des value dans la fonction onChange
   const [title, setTitle] = useState(""); //  title = titre
@@ -9,11 +8,11 @@ const Publish = ({ token }) => {
   const [brand, setBrand] = useState(""); //  brand = Marque
   const [size, setSize] = useState(""); //  size = Taille
   const [color, setColor] = useState(""); //  color = Couleur
-  const [condition, setCondition] = useState(""); //  etat = état du produit
+  const [condition, setCondition] = useState(""); //  condition = état du produit
   const [city, setCity] = useState(""); //  city = Lieu
   const [price, setPrice] = useState(0); //  price = prix
   const [exchangeInterest, setExchangeInterest] = useState(false); //  checkbox
-  const [picture, setPicture] = useState(null); // file = photo
+  const [picture, setPicture] = useState(null); // picture = photo
   const [data, setData] = useState(null); //data requete
   const [isPictureSending, setIsPictureSending] = useState(false);
   //*******************************************************************************/
@@ -46,8 +45,8 @@ const Publish = ({ token }) => {
         formData,
         {
           headers: {
-            // authorization: `Bearer ` + userToken,
-            authorization: `Bearer ` + Cookies.get(token),
+            authorization: `Bearer ` + token,
+            // authorization: `Bearer ` + Cookies.get(token),
             ContentType: "multipart/form-data",
           },
         }
@@ -145,7 +144,7 @@ const Publish = ({ token }) => {
             <input
               value={price}
               placeholder="ex : 0,00€"
-              type="text"
+              type="number"
               onChange={(event) => setPrice(event.target.value)}
             />
             <br />
