@@ -147,7 +147,7 @@ const Publish = ({ token }) => {
               type="number"
               onChange={(event) => setPrice(event.target.value)}
             />
-            <br />
+            {/* <br /> */}
 
             {/* <input
               type="checkbox"
@@ -189,7 +189,7 @@ const Publish = ({ token }) => {
             data && navigate(`/offer/${data._id}`)
           )} */}
           <div className="submit_form_btn">
-            <input type="submit"> Ajouter</input>
+            <input type="submit" value="Ajouter"></input>
           </div>
           {/* <input
             className="Register"

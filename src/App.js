@@ -15,6 +15,7 @@ import User from "./pages/User";
 //components
 import Header from "./components/Header";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
@@ -33,12 +34,14 @@ function App() {
     setToken(token);
     console.log(`Mise à jour du state Token avec ${token}`);
   };
+
   return (
     <Router>
       <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/publish" element={<Publish token={token} />} />
+        <Route path="/payment" element={<Payment token={token} />} />
         <Route path="/user" element={<User />} />
         <Route path="/offer/:offerId" element={<Offer />} />
         <Route path="/signup" element={<Inscription setUser={setUser} />} />
