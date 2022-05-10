@@ -14,8 +14,8 @@ const Payment = () => {
   const price = location.state;
 
   const protectionPrice = 0.4;
-  const shippingPrice = 0.8;
-  const totalPrice = price + protectionPrice + shippingPrice;
+  const postagePrice = 0.8;
+  const total = price + protectionPrice + postagePrice;
 
   //   console.log(title, price);
 
@@ -36,24 +36,21 @@ const Payment = () => {
               </li>
               <li>
                 <span>Frais de port : </span>
-                <span>{shippingPrice} €</span>
+                <span>{postagePrice} €</span>
               </li>
             </ul>
           </div>
           <div className="divider"></div>
           <div className="payment_total">
             <span>Total : </span>
-            <span>{totalPrice.toFixed(2)} €</span>
+            <span>{total.toFixed(2)} €</span>
           </div>
           <div className="payment_text">
             Il ne vous reste plus qu'une étape pour vous offrir
             <span className="payment_text_bold"> {title}</span>. Vous allez
             payer
-            <span className="payment_text_bold">
-              {" "}
-              {totalPrice.toFixed(2)}
-            </span>{" "}
-            € (frais de protection et frais de port inclus).
+            <span className="payment_text_bold"> {total.toFixed(2)}</span> €
+            (frais de protection et frais de port inclus).
           </div>
           <div className="divider"></div>
         </div>
@@ -62,7 +59,7 @@ const Payment = () => {
           <CheckoutForm
             title={title}
             price={price}
-            stripePromise={stripePromise}
+            // stripePromise={stripePromise}
           />
         </Elements>
       </div>
