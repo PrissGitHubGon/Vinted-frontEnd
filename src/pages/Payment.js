@@ -17,7 +17,7 @@ const Payment = () => {
   const postagePrice = 0.8;
   const total = price + protectionPrice + postagePrice;
 
-  //   console.log(title, price);
+  console.log(title, price);
 
   return (
     <div className="payment-container">
