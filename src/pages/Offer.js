@@ -65,7 +65,6 @@ function Offer() {
               Acheter
             </button>
           </div>
-
           {/* <Link to="/payment" state={{ title: data.product_name, price: data.product_price }}>
   Acheter
 </Link> */}

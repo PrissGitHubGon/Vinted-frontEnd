@@ -19,7 +19,6 @@ const Publish = ({ token }) => {
 
   // const userToken = token;
   //*******************************************************************************/
-
   // const navigate = useNavigate(); //redirection vers une autre page
 
   const handlePublish = async (event) => {
