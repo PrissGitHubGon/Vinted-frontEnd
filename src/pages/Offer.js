@@ -1,9 +1,7 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-// import { Link } from "react-router-dom";
 function Offer() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +11,6 @@ function Offer() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          // "https://lereacteur-vinted-api.herokuapp.com/offers"
           `https://lereacteur-vinted-api.herokuapp.com/offer/${params.offerId}`
         );
         console.log(params.offerId);
@@ -65,9 +62,6 @@ function Offer() {
               Acheter
             </button>
           </div>
-          {/* <Link to="/payment" state={{ title: data.product_name, price: data.product_price }}>
-  Acheter
-</Link> */}
         </div>
       </div>
     </div>

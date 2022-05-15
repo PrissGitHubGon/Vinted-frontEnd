@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
-// import axios from "axios";
 
 const RangeLine = () => {
   const STEP = 0.1;
@@ -8,17 +7,6 @@ const RangeLine = () => {
   const MAX = 500;
   const [values, setValues] = useState([10, 100]);
 
-  // axios
-  //   .get("https://lereacteur-vinted-api.herokuapp.com/offers")
-  //   .then((response) => {
-  //     console.log(response.data);
-  //     console.log("B");
-  //   })
-  //   .catch((error) => {
-  //     // se déclenchera en cas d'erreur
-  //     console.log(error);
-  //   });
-  //chercher dans la doc "on final change" pour eviter la tonne de requete lorsquon bouge les boutons
   return (
     <div>
       <Range

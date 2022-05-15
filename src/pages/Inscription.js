@@ -14,10 +14,7 @@ function Inscription({ setUser }) {
   const handleSignup = async (event) => {
     try {
       event.preventDefault();
-      //je viens reset le message d'erreur à chaque tentative
       setErrorMessage("");
-      //une requête au serveur pour créer un nouveau user
-      // axios.post("url", body)
 
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
@@ -32,11 +29,9 @@ function Inscription({ setUser }) {
       if (response.data) {
         console.log("J'ai bien réussi à créer un compte");
         setUser(response.data.token);
-        //Rediriger l'utilisateur vers la page principale
         navigate("/");
       }
     } catch (error) {
-      //   console.log(error.message);
       console.log(error.response.status);
       if (error.response.status === 409) {
         setErrorMessage("Cet email a déjà un compte !");

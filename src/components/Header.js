@@ -2,37 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/img/logo.svg";
 import RangeLine from "./Range-bar";
-// import axios from "axios";
+
 function Header({ token, setUser }) {
   const [input, setInput] = useState("");
-  // const [data, setData] = useState();
-
   const navigate = useNavigate();
-  // const marque = data;
-  // console.log("console log de marque =>", marque);
-  // axios
-  //   .get(`https://lereacteur-vinted-api.herokuapp.com/offer`)
-  //   .then((response) => {
-  // const marqueTitle = response.data.offers.product_details;
-  // console.log("console log de response =>", response.data, marqueTitle);
-  // // console.log("B");
-  // // console.log(pokemonTab);
-  // for (let i = 0; i < marqueTitle.length; i++) {
-  //   // je boucle sur mon tableau et j'affiche la clef name de chaque objet.
-  // console.log(response.data);
-  // }
-  // })
-  // .catch((error) => {
-  // se déclenchera en cas d'erreur
-  // console.log(error);
-  // });
-  // axios.get("/title", (req, res) => {
-  //   console.log(req.query); // { name: 'farid', city: 'paris' }
-  //   res.send("Data received");
-  // });
+
   return (
     <div className="global-header">
-      <div className="header">
+      <div className="header ">
         <Link to="/">
           <img src={Logo} alt="" className="logo" />
         </Link>
@@ -56,27 +33,40 @@ function Header({ token, setUser }) {
           />
         </div>
         {token === null ? (
-          <nav>
-            <Link to="/signup" className="c-button--small  c-button ">
+          <nav style={{ paddingBottom: "20px" }}>
+            <button
+              to=""
+              className="btn-soldeArticle"
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
               S'inscrire
-            </Link>
-            <Link to="/login" className="c-button--small  c-button ">
+            </button>
+            <button
+              to=""
+              className="btn-soldeArticle"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
               Se connecter
-            </Link>
-            <Link to="" className="c-button--small  c-button ">
-              Vend Maintenant
-            </Link>
+            </button>
+            <button
+              to=""
+              className="btn-soldeArticle"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Vends maintenant
+            </button>
           </nav>
         ) : (
           <div>
             {" "}
             <button
-              style={{
-                background: "red",
-                color: "white",
-                border: "none",
-                cursor: "pointer",
-              }}
+              className="btn-disconect"
               onClick={() => {
                 //Je me déconnecte et je redirige l'utilsateur vers la home page
                 setUser(null);
@@ -85,7 +75,7 @@ function Header({ token, setUser }) {
             >
               Se déconnecter
             </button>
-            <select>
+            <select className="btn-select">
               <option value="Mon compte" disabled>
                 Mon compte
               </option>
@@ -100,19 +90,14 @@ function Header({ token, setUser }) {
             </select>
             <button
               to=""
-              className="c-button--small  c-button "
-              style={{
-                background: "#09B1BA",
-                color: "white",
-                border: "none",
-                cursor: "pointer",
-              }}
+              className="btn-soldeArticle"
               onClick={() => {
                 navigate("/publish");
               }}
             >
-              Vend tes articles
+              Vends maintenant
             </button>
+            <i class="fas fa-question-circle"></i>
           </div>
         )}
       </div>

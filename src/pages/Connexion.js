@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Cookies from "js-cookie";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +22,6 @@ function Connexion({ setUser }) {
       console.log(response.data);
       if (response.data.token) {
         setUser(response.data.token);
-        // redirection
         navigate("/");
       }
     } catch (error) {

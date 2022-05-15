@@ -8,15 +8,14 @@ import { Link } from "react-router-dom";
 export default function Home() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  //creation d'un state pour la pagination du site
   const [page, setPage] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?limit=6&page=${page}` //state dans l'url pour la pagination
+          `https://lereacteur-vinted-api.herokuapp.com/offers?limit=6&page=${page}` 
         );
-        // console.log(response.data);
+
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -24,13 +23,13 @@ export default function Home() {
       }
     };
     fetchData();
-  }, [page]); //mettre "page" ici, sinon useEffect bloquera la demande de requete lors du changement de page
+  }, [page]);
   return isLoading === true ? (
     <div>En cours de chargement...</div>
   ) : (
     <div className="home">
       <div className="banner">
-        <img src={Banner} alt="" />
+        <img src={Banner} alt="" className="hero" />
         <div className="tri">
           <p>
             Prêts à faire <br />
@@ -52,13 +51,29 @@ export default function Home() {
           return (
             <Link to={`/offer/${id}`} className="description">
               {" "}
-              <div
-                className="articles"
-                key={index}
-                //   onClick={(articles) => {
-                //     articles._id;
-                //   }}
-              >
+              <div className="avatar-account">
+                <div className="avatar-imgcontainer">
+                  {<img
+                    src={articles.owner.account.avatar.url}
+                    alt=""
+                    className="avatar-img"
+                  /> ? (
+                    <img
+                      src={articles.owner.account.avatar.url}
+                      alt=""
+                      className="avatar-img"
+                    />
+                  ) : (
+                    <img
+                      src="../assets/img/woman-1274056__340.jpg"
+                      alt=""
+                      className="avatar-img"
+                    />
+                  )}
+                </div>
+                <p>{articles.owner.account.username}</p>
+              </div>
+              <div className="articles" key={index}>
                 <div className="images">
                   <img src={articles.product_image.url} alt="" />
                 </div>
@@ -78,71 +93,11 @@ export default function Home() {
           );
         })}
       </div>
-      {/* Mise en place des boutons avec les state page, pour créer la pagination des produits */}
-      <button onClick={() => setPage(page - 1)}>Page précédente</button>
-      <button onClick={() => setPage(page + 1)}>Page suivante</button>
-      <div className="title">
-        <p>Recherche par marque</p>
-      </div>
-      <div className="search-to-marque">
-        <Link to="" className="search-to-marque-link">
-          Kiabi
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Cache Cache
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Tommy Hilfiger
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Desigual
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Burberry
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Monoprix
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Domyos
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Pimkie
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Superdry
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Decathlon
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Stradivarius
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Sandro
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Caroll
-        </Link>
 
-        <Link to="" className="search-to-marque-link">
-          Esprit
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Gémo
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Wed'ze
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Disney
-        </Link>
-        <Link to="" className="search-to-marque-link">
-          Jules
-        </Link>
-      </div>
-      <div className="title">
-        <p>Suggestions de recherche</p>
+      <div className="container-btn-home">
+        {" "}
+        <button onClick={() => setPage(page - 1)}>Page précédente</button>
+        <button onClick={() => setPage(page + 1)}>Page suivante</button>
       </div>
     </div>
   );
