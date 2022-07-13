@@ -13,7 +13,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?limit=6&page=${page}` 
+          `https://lereacteur-vinted-api.herokuapp.com/offers?limit=6&page=${page}`
         );
 
         setData(response.data);
@@ -44,7 +44,7 @@ export default function Home() {
       <div className="title">
         <p>Articles populaires</p>
       </div>
-      <div className="article-container">
+      {/* <div className="article-container">
         {data.offers.map((articles, index) => {
           const id = articles._id;
 
@@ -92,7 +92,7 @@ export default function Home() {
             </Link>
           );
         })}
-      </div>
+      </div> */}
 
       <div className="container-btn-home">
         {" "}
