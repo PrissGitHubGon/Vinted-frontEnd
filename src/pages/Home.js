@@ -1,32 +1,33 @@
 import React from "react";
 import Banner from "../assets/img/banner-wide-9b45d0aa9a311c4ff6013e9cf3bc2b6646468be3d2f553192c63598685fcc177.jpg";
 import "../App.scss";
-import axios from "axios";
-import { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?limit=6&page=${page}`
-        );
+  // const [data, setData] = useState();
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [page, setPage] = useState(1);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://lereacteur-vinted-api.herokuapp.com/offers?limit=6&page=${page}`
+  //       );
 
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [page]);
-  return isLoading === true ? (
-    <div>En cours de chargement...</div>
-  ) : (
+  //       setData(response.data);
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [page]);
+  // return isLoading === true ? (
+  //   <div>En cours de chargement...</div>
+  // ) : (
+  return (
     <div className="home">
       <div className="banner">
         <img src={Banner} alt="" className="hero" />
@@ -96,8 +97,10 @@ export default function Home() {
 
       <div className="container-btn-home">
         {" "}
-        <button onClick={() => setPage(page - 1)}>Page précédente</button>
-        <button onClick={() => setPage(page + 1)}>Page suivante</button>
+        {/* <button onClick={() => setPage(page - 1)}>Page précédente</button>
+        <button onClick={() => setPage(page + 1)}>Page suivante</button> */}
+        <button>Page précédente</button>
+        <button>Page suivante</button>
       </div>
     </div>
   );
