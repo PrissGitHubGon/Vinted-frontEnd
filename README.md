@@ -42,9 +42,6 @@ FRONT-END
 * js-cookie
 
 BACK-END
-``
-
-* "dependencies": {
 * "cloudinary": "^1.29.0",
 * "cors": "^2.8.5",
 * "crypto-js": "^4.1.1",
@@ -54,8 +51,7 @@ BACK-END
 * "mongoose": "^6.2.10",
 * "morgan": "^1.10.0",
 * "uid2": "^1.0.0"
-  }
-``
+
 
 # Commencer à travailler
 
@@ -65,3 +61,5 @@ BACK-END
 * ``git clone https://github.com/PrissGitHubGon/Vinted-frontEnd.git``
 2. Install "Yarn" package
 * ``yarn add``
+3. Lancer le projet
+* ``yarn start``
