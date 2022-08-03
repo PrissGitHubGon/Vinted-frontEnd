@@ -1,6 +1,6 @@
 # Vinted
 
-##  1️⃣ Projet 
+##  2️⃣ Projet 
 
 Lors de mes 10 semaines de Bootcamp dans l'école de formation "Le Reacteur", j'ai eu comme exercice la réalisation de la maquette Vinted.
 
